@@ -64,13 +64,13 @@
   ]
 }</code><br><br>
 
-          <p>Handshake uses bitcoin-like redeem scripts, so we then used <a href="https://hnsnetwork.com/txs/69834315a5438b37894cc62737ad6f7425ca44bee3b43e9e855420070c5244e6">the following script</a> to make the .forever TLD uneditable by anyone:</p>
+          <p>Handshake uses bitcoin-like redeem scripts, so we then used <a href="https://hnsnetwork.com/txs/0d28eaf2a13699db221226319da234cae4faf9362fb9733bbbf794b76f2b927e">the following script</a> to make the .forever TLD uneditable by anyone:</p>
           <code>OPTYPE
 0x08 // RENEW
 OPEQUAL</code><br><br>
 
           <p>Handshake is a fork of Bitcoin, with added <a href="https://hsd-dev.org/guides/protocol.html#covenants">covenants</a>, so we can use this script to prove to second-level domain owners that they do not need to trust the owner of the .forever TLD, because the data currently on the blockchain for the TLD can no longer be changed. This script says that the only transaction that is acceptable is a RENEW transaction, and it can be done by anyone. So, no one can update the name .forever, but anyone can renew it. The TLD .forever is now unowned by anyone (for more detailed information, check out <a href="https://github.com/handshake-org/hsd/pull/567">this test for hsd created by Matt Zipkin</a>).</p>
-          <p>Control of the ENS contract also needs to be provably removed, otherwise the owner of the contract could update it and pull the rug out from second-level domain owners by removing control of their domains. We <a href="https://etherscan.io/tx/0xb8dddf74c1aed0df0809cfc9812a182f6811d4ecb83a2efd562cfead26a7c152">have transferred ownership of the ENS registry contract to a burn address</a> as proof that no one owns the registry. In this way, owners of second-level .forever domains do not need to trust the registry, because no one controls it. The TLD .forever is completely out of our control, no one controls it now - it has a life of its own from now on.</p>
+          <p>Control of the ENS contract also needs to be provably removed, otherwise the owner of the contract could update it and pull the rug out from second-level domain owners by removing control of their domains. We <a href="https://etherscan.io/tx/0x146a942d81ec20ae24f1079c9b9c838ad53afd6f4755c1f711222dcfc5fef672">have transferred ownership of the ENS registry contract to a burn address</a> as proof that no one owns the registry. In this way, owners of second-level .forever domains do not need to trust the registry, because no one controls it. The TLD .forever is completely out of our control, no one controls it now - it has a life of its own from now on.</p>
           
           <h3>How do I resolve .forever domains?</h3>
           <p>To make this easy, we've created an open source menu bar app that uses hnsd, an SPV resolver daemon for the Handshake network, plus Ethereum, to resolve .forever domains. It also helps to render https with DANE. I'll post more info and links about this soon.</p>

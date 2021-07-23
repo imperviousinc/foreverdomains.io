@@ -1,0 +1,123 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Forever domains are truly decentralized domains with no renewal fees, ever.">
+    <title>forever domains</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../img/favicon-96x96.png">
+    <meta name="msapplication-TileImage" content="../img/ms-icon-144x144.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/forever.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <style type="text/css">
+  code { white-space: pre; }
+  </style>
+  </head>
+
+  <body id="secondary">
+
+    <!-- .container -->
+    <div class="container-fluid header">
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="logo">
+            <a class="" href="../index.html">
+              <img src="../img/logo.png" alt="forever domains">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid content-wrap">
+      <div class="container content">
+        <div class="col-md-12">
+          <h1>About forever domains</h1>
+          <p>This is an article about how and why <a href="https://impervious.com">Impervious</a> created decentralized .forever domains, which you can register and manage right now at <a href="https://foreverdomains.io">foreverdomains.io</a>. The .forever top-level domain (TLD) is part of the <a href="https://handshake.org">Handshake</a> decentralized root zone, with second-level domain registrations managed via a <a href="https://github.com/imperviousinc/forever-contracts">fork of ENS</a>.</p>
+          
+          <h3>Why we launched .forever domains</h3>
+          <p>If you register a domain on a traditional ICANN TLD (e.g., .com, .org, etc.), you don't actually own that domain. You're renting it from a registrar, and if your lease expires, the domain will be taken away from you.</p>
+          <p>There are also multiple organizations that have the ability to censor and take control over your domain. For example, if you register example.com, the following organizations control it and can censor it: ICANN, the .com registry (Verisign), and the registrar you used to register the domain (e.g. GoDaddy). Anyone working for these organizations with sufficient access can remove your control of the domain.</p>
+          <p>This happens all the time. <a href="https://en.wikipedia.org/wiki/Sci-Hub">Sci-Hub</a> continues to have to change domains because theirs keep getting seized. <a href="https://www.zdnet.com/article/81000-uk-owned-eu-domains-suspended-as-brexit-transition-ends/">81,000 UK-owned .eu domains were suspended</a> when the Brexit transition ended. The Spanish government seized the .cat TLD registry and <a href="https://www.eff.org/deeplinks/2017/09/cat-domain-casualty-catalonian-independence-crackdown">deleted domains promoting a referendum</a> for Catalina to declare itself independent from Spain. A <a href="https://thehackerblog.com/the-io-error-taking-control-of-all-io-domains-with-a-targeted-registration/">hacker took control of all .io domains</a> by registering the domain of a name server that the registry let expire. The <a href="https://news.ycombinator.com/item?id=2451302">FBI seized the top three largest poker domains</a>. JotForm had <a href="http://www.jotform.net/blog/45-JotForm-com-Suspended">its domain seized</a> for three days in 2012.</p>
+          <p>In addition, there are multiple services around domain names (e.g., escrow services, domain name marketplaces, etc.) in which you need to trust other organizations as middlemen. Putting domains on a blockchain removes this obstacle and removes the need to trust or rely on these middlemen.</p>
+          <p>To address all of these problems, we created .forever domains. When you register a .forever domain, you are the only person that can control it, and the domain never expires, which means you never have to renew it. So you truly own your .forever domain, completely and forever. You can get [your family name].forever and pass it down from generation to generation.</p>
+
+          <h3>How to register a .forever domain</h3>
+          <p>We've created <a href="https://ca98am79.medium.com/a-step-by-step-guide-to-registering-a-forever-domain-734b8b4b483d">a step-by-step guide to help you register .forever domains</a>. You can also buy on registrars like <a href="https://www.encirca.com/forever/">encirca.com</a> and <a href="https://gateway.io/tlds/forever">gateway.io</a>.</p>
+          
+          <h3>How .forever was implemented</h3>
+          <p>.forever is a TLD on the decentralized root zone Handshake, which is built on a proof of work blockchain. People can open auctions and bid on TLDs directly using the Handshake protocol. Once the auction is over and the winner has registered the name, it is only owned and controlled by the wallet that registered the name.</p>
+          <p>To create truly decentralized second-level domains, we must remove the control that the owner of the TLD has over the TLD. We need to prove that the owner of the TLD will not suddenly "pull the rug" out from all of the second-level domain owners by changing the records for the TLD.</p>
+          <p>To do this we first set the NS for the .forever TLD to point to the ENS contract that we deployed (using <a href="https://github.com/handshake-org/HIPs/blob/master/HIP-0005.md">HIP-0005</a> format):</p>
+          <code>{
+  "records": [
+    {
+      "type": "NS",
+      "ns": "0x0001af047E9fb5dCD99E6823C900f3D8f5b2c5f4._eth."
+    }
+  ]
+}</code><br><br>
+
+          <p>Handshake uses bitcoin-like redeem scripts, so we then used <a href="https://hnsnetwork.com/txs/69834315a5438b37894cc62737ad6f7425ca44bee3b43e9e855420070c5244e6">the following script</a> to make the .forever TLD uneditable by anyone:</p>
+          <code>OPTYPE
+0x08 // RENEW
+OPEQUAL</code><br><br>
+
+          <p>Handshake is a fork of Bitcoin, with added <a href="https://hsd-dev.org/guides/protocol.html#covenants">covenants</a>, so we can use this script to prove to second-level domain owners that they do not need to trust the owner of the .forever TLD, because the data currently on the blockchain for the TLD can no longer be changed. This script says that the only transaction that is acceptable is a RENEW transaction, and it can be done by anyone. So, no one can update the name .forever, but anyone can renew it. The TLD .forever is now unowned by anyone (for more detailed information, check out <a href="https://github.com/handshake-org/hsd/pull/567">this test for hsd created by Matt Zipkin</a>).</p>
+          <p>Control of the ENS contract also needs to be provably removed, otherwise the owner of the contract could update it and pull the rug out from second-level domain owners by removing control of their domains. We <a href="https://etherscan.io/tx/0xb8dddf74c1aed0df0809cfc9812a182f6811d4ecb83a2efd562cfead26a7c152">have transferred ownership of the ENS registry contract to a burn address</a> as proof that no one owns the registry. In this way, owners of second-level .forever domains do not need to trust the registry, because no one controls it. The TLD .forever is completely out of our control, no one controls it now - it has a life of its own from now on.</p>
+          
+          <h3>How do I resolve .forever domains?</h3>
+          <p>To make this easy, we've created an open source menu bar app that uses hnsd, an SPV resolver daemon for the Handshake network, plus Ethereum, to resolve .forever domains. It also helps to render https with DANE. I'll post more info and links about this soon.</p>
+          <p>You can also install hsd and run it with the <a href="https://github.com/imperviousinc/handover">Handover plugin we have created</a>, which resolves ENS names using <a href="https://github.com/handshake-org/HIPs/blob/master/HIP-0005.md">HIP-0005</a> and <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1185.md">EIP-1185</a>.</p>
+          <p>Once you've done this, you can test it out by resolving this name in your browser:</p>
+          <p><a href="http://humbly.forever">http://humbly.forever</a></p>
+          <p>Bonus points if you can resolve https with DANE:</p>
+          <p><a href="https://humbly.forever">https://humbly.forever</a></p>
+          <p>Eventually we expect resolving names will become much simpler as more browsers and DNS service providers enable resolution for Handshake in the future.</p>
+          
+          <h3>Why this is better than other solutions</h3>
+          <p>There are already decentralized second-level domains on the internet. <a href="https://ens.domains">Ethereum Name Service</a> allows users to register second-level domains under the .eth TLD. Other services like Unstoppable Domains (.crypto) and Namecoin(.bit) are similar in theory. But there are no integrations for traditional DNS records on .eth and .crypto, so you can't view them in a browser, or with https. The best you can do is redirect the name to a traditional domain, or to a static <a href="https://ipfs.io">IPFS</a> page. The .eth, .crypto and .bit TLDs are also orphaned - they are not anchored in any root zone.</p>
+          <p>We made the decision to anchor .forever in the decentralized root zone Handshake, which is built on a proof of work blockchain (a fork of Bitcoin). An advantage of Handshake is that it removes the need to trust Certificate Authorities (CAs). Currently when you visit an https website, you have to trust the CA that issued the certificate. With Handshake, you can set up <a href="https://tools.ietf.org/html/rfc6698">DANE</a>, so that internet traffic to the domain can be encrypted using only DNS. We have added support for https on .forever and you can use this <a href="">step-by-step guide</a> to set this up for your .forever domain.</p>
+          
+          <h3>Conclusion</h3>
+          <p>Truly decentralized domain names that support DNS and https are essential to the freedom of the internet. It's even better when they never expire so that you can be confident that you will own them forever. We are really happy to launch the first domains of this kind and look forward to seeing how it plays out. If you have any questions please reach out: support@impervious.com</p>
+          
+        </div>
+      </div>
+    </div>
+      <!-- /.container -->
+       
+
+
+
+    
+    <!-- .container -->
+    <div class="container-fluid footer">
+
+      <div class="container lower">
+        <div class="col-sm-6 links">
+          <ul>
+            <li><a href="../about/index.html">About</a></li>
+            <li><a href="../terms/index.html">Terms of service</a></li>    
+            <li><a href="../privacy/index.html">Privacy policy</a></li>
+            <li>&copy; Copyright 2021 <a href="https://impervious.com/">Impervious Inc</a></li>
+          </ul> 
+        </div>
+        <div class="col-sm-6 brand">
+          <div><img src="../img/logo-footer.png"></div>         
+      </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

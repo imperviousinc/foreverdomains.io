@@ -52,7 +52,8 @@
       <div class="col-md-5 col-md-offset-1">
           <h3>Easily register and manage .forever domains</h3>
           <p>You don’t have to trust anyone and you completely own your .forever domain.</p>
-          <p>The registry for .forever names is deployed on Ethereum and unowned by anyone, so it is completely decentralized. The .forever top-level domain is also unowned by anyone on the Handshake root zone. You can also buy on: EnCirca, gateway.io.</p>
+          <p>The registry for .forever names is deployed on Ethereum and unowned by anyone, so it is completely decentralized. The .forever top-level domain is also unowned by anyone on the Handshake root zone.</p> 
+          <p>You can also buy on: <a href="https://www.encirca.com/forever/">EnCirca</a> and <a href="https://gateway.io/tlds/forever">gateway.io</a>.</p>
           <p><a href="/about/index.html">More about .forever domains <img src="img/arrow.svg" class="arrow"></a></p>
         </div>
         <div class="col-md-6 phone">
@@ -291,7 +292,7 @@
     
     <script>
     	$("#search-form").submit(function() {
-    		window.location.replace("https://app.foreverdomains.io/search/" + $("#search-data").val());
+    		window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val();
     		return false;
 		});
     </script>

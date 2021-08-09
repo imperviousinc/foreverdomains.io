@@ -18,8 +18,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style type="text/css">
-  code { white-space: pre; }
-  </style>
+      code { white-space: pre; }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5TX7CMEWZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X5TX7CMEWZ');
+    </script>
   </head>
 
   <body id="secondary">
@@ -41,7 +51,7 @@
         <div class="col-md-12">
           <h1>About Forever Domains</h1>
           <p>This is an article about how and why <a href="https://impervious.com">Impervious</a> created decentralized .forever domains, which you can register and manage right now at <a href="https://foreverdomains.io">foreverdomains.io</a>. The .forever top-level domain (TLD) is part of the <a href="https://handshake.org">Handshake</a> decentralized root zone, with second-level domain registrations managed via a <a href="https://github.com/imperviousinc/forever-contracts">fork of ENS</a>.</p>
-          
+
           <h3>Why we launched .forever domains</h3>
           <p>If you register a domain on a traditional ICANN TLD (e.g., .com, .org, etc.), you don't actually own that domain. You're renting it from a registrar, and if your lease expires, the domain will be taken away from you. This has happened to a number of companies over the years, including <a href="https://slashdot.org/story/99/12/25/114201/microsoft-hotmailpassport-service-interruptedupdated">Microsoft</a> (<a href="https://www.theregister.com/2003/11/06/microsoft_forgets_to_renew_hotmail/">twice</a>), the <a href="https://www.cnet.com/news/cowboys-fire-coach-forget-to-renew-web-domain/">Dallas Cowboys</a>, and <a href="https://www.thedomains.com/2013/04/15/regions-bank-fails-to-renew-regions-com-taking-it-offline-for-at-least-one-day/">Regions Bank</a>. It continues to happen to countless other companies and individuals on a daily basis.</p>
           <p>Even if you renew your lease, there are multiple organizations that have the ability to censor and take control over your domain. For example, if you register example.com, the following organizations control it and can censor it: ICANN, the .com registry (Verisign), and the registrar you used to register the domain (e.g., GoDaddy). Anyone working for these organizations with sufficient access can remove your control of the domain.</p>
@@ -52,7 +62,7 @@
 
           <h3>How to register .forever domains</h3>
           <p>We've created <a href="https://ca98am79.medium.com/a-step-by-step-guide-to-registering-a-forever-domain-734b8b4b483d">a step-by-step guide to help you register .forever domains</a>. You can also buy them from registrars like <a href="https://www.encirca.com/forever/">encirca.com</a> and <a href="https://gateway.io/tlds/forever">gateway.io</a>.</p>
-          
+
           <h3>How to resolve .forever domains</h3>
           <p>We've created an open source menu bar app called <a href="https://impervious.com/fingertip.html">Fingertip</a> that uses <a href="https://github.com/handshake-org/hnsd">hnsd</a>, an SPV resolver daemon for the Handshake network, plus Ethereum, to make it easy to resolve .forever domains. The app also helps render https with <a href="https://datatracker.ietf.org/doc/html/rfc6698">DANE</a>. You can <a href="https://impervious.com/fingertip.html">download it here</a> and <a href="https://github.com/imperviousinc/fingertip">view the source code here</a>. Check out how easy it is to set up:</p>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/APKaRJyUnCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -84,19 +94,19 @@ OPEQUAL</code><br><br>
 
           <p>Handshake is a fork of Bitcoin, with added <a href="https://hsd-dev.org/protocol/summary.html#covenants">covenants</a>, so we can use this script to prove to second-level domain owners that they do not need to trust the owner of the .forever TLD, because the data currently on the blockchain for the TLD can no longer be changed. This script says that the only transaction that is acceptable is a RENEW transaction, and it can be done by anyone. So no one can update the .forever TLD, but anyone can renew it. The .forever TLD is now unowned by anyone (for more detailed information, check out <a href="https://github.com/handshake-org/hsd/pull/567">this test for hsd created by Matt Zipkin</a>).</p>
           <p>Control of the ENS contract also needs to be provably removed; otherwise, the owner of the contract could update it and pull the rug out from second-level domain owners by removing control of their domains. We <a href="https://etherscan.io/tx/0x146a942d81ec20ae24f1079c9b9c838ad53afd6f4755c1f711222dcfc5fef672">have transferred ownership of the ENS registry contract to a burn address</a> as proof that no one owns the registry. In this way, owners of second-level .forever domains do not need to trust the registry because no one controls it. The .forever TLD is completely out of our control. No one controls it -- it has a life of its own from now on.</p>
-                    
+
           <h3>Why this is better than other solutions</h3>
           <p>There are already decentralized second-level domains on the internet. <a href="https://ens.domains">Ethereum Name Service</a> allows users to register second-level domains under the .eth TLD. Other services like Unstoppable Domains (.crypto) and Namecoin (.bit) are similar in theory. But there are no integrations for traditional DNS records on .eth and .crypto, so you can't view them in a browser or with https. The best you can do is redirect the name to a traditional domain or to a static <a href="https://ipfs.io">IPFS</a> page. The .eth, .crypto and .bit TLDs are also orphaned  --  they are not anchored in any root zone.</p>
           <p>We made the decision to anchor .forever in the decentralized root zone <a href="https://handshake.org/">Handshake</a>, which is built on a proof of work blockchain (a fork of Bitcoin). An advantage of Handshake is that it removes the need to trust Certificate Authorities (CAs). Currently, when you visit an https website, you have to trust the CA that issued the certificate. With Handshake, you can set up <a href="https://tools.ietf.org/html/rfc6698">DANE</a>, so that internet traffic to the domain can be encrypted using only DNS. We have added support for https on .forever and you can use <a href="https://gist.github.com/buffrr/609285c952e9cb28f76da168ef8c2ca6">this easy 2-step process to generate an SSL certificate and TLSA record</a> to set this up for your .forever domain.</p>
-          
+
           <h3>Conclusion</h3>
           <p>Truly decentralized domain names that support DNS and https are essential to the freedom of the internet. It's even better when they never expire so that you can be confident that you will own them forever. We are really happy to launch the first domains of this kind and look forward to seeing how it plays out. If you have any questions please reach out: <a href="mailto:support@impervious.com">support@impervious.com</a></p>
-          
+
         </div>
       </div>
     </div>
-      <!-- /.container -->
-   
+    <!-- /.container -->
+
     <!-- .container -->
     <div class="container-fluid footer">
 
@@ -104,13 +114,13 @@ OPEQUAL</code><br><br>
         <div class="col-sm-6 links">
           <ul>
             <li><a href="../about/index.html">About</a></li>
-            <li><a href="../terms/index.html">Terms of service</a></li>    
+            <li><a href="../terms/index.html">Terms of service</a></li>
             <li><a href="../privacy/index.html">Privacy policy</a></li>
             <li>&copy; Copyright 2021 <a href="https://impervious.com/">Impervious Inc</a></li>
-          </ul> 
+          </ul>
         </div>
         <div class="col-sm-6 brand">
-          <div><img src="../img/logo-footer.png"></div>         
+          <div><img src="../img/logo-footer.png"></div>
       </div>
       </div>
     </div>
@@ -118,6 +128,6 @@ OPEQUAL</code><br><br>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+
   </body>
 </html>

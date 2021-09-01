@@ -18,7 +18,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style type="text/css">
-      code { white-space: pre; }
+      	code { white-space: pre; }
+      	.videoWrapper {
+		  position: relative;
+		  padding-bottom: 56.25%; /* 16:9 */
+		  height: 0;
+		}
+		.videoWrapper iframe {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		}
     </style>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -65,7 +77,9 @@
 
           <h3>How to resolve .forever domains</h3>
           <p>We've created an open source menu bar app called <a href="https://impervious.com/fingertip.html">Fingertip</a> that uses <a href="https://github.com/handshake-org/hnsd">hnsd</a>, an SPV resolver daemon for the Handshake network, plus Ethereum, to make it easy to resolve .forever domains. The app also helps render https with <a href="https://datatracker.ietf.org/doc/html/rfc6698">DANE</a>. You can <a href="https://impervious.com/fingertip.html">download it here</a> and <a href="https://github.com/imperviousinc/fingertip">view the source code here</a>. Check out how easy it is to set up:</p>
+          <div class="videoWrapper">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/APKaRJyUnCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
           <p>You can also install <a href="https://github.com/handshake-org/hsd">hsd</a> and run it with the <a href="https://github.com/imperviousinc/handover">Handover plugin we have created</a>, which resolves ENS names using <a href="https://github.com/handshake-org/HIPs/blob/master/HIP-0005.md">HIP-0005</a> and <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1185.md">EIP-1185</a>.</p>
           <p>Once you've done this, you can test it out by resolving this name in your browser:</p>
           <p><a href="http://impervious.forever">http://impervious.forever</a></p>

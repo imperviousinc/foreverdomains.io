@@ -305,10 +305,36 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-    	$("#search-form").submit(function() {
-    		window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val();
-    		return false;
-		});
+      var fid;
+
+      $(function() {
+        let parameters = window.location.href.split('?')[1];
+        if (typeof parameters !== 'undefined') {
+          var searchParameters = new URLSearchParams(parameters);
+
+          for (var keyValues of searchParameters.entries()) {
+            if (/^fid$/i.test(keyValues[0]) && /^[0-9]+$/.test(keyValues[1])) {
+              fid = keyValues[1];
+
+              var anchors = document.getElementsByTagName("a");
+              for (var i = 0; i < anchors.length; i++) {
+                if (/app\.foreverdomains\.io/.test(anchors[i].href)) {
+                  anchors[i].href += '?fid=' + fid;
+                }
+              }
+            }
+          }
+        }
+      });
+
+      $("#search-form").submit(function() {
+        if (typeof fid !== 'undefined') {
+          window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val() + '?fid=' + fid;
+        } else {
+          window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val();
+        }
+        return false;
+      });
     </script>
 
   </body>

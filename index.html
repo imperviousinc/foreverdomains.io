@@ -305,23 +305,25 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-      var fid;
+      let fid;
 
       $(function() {
-        let parameters = window.location.href.split('?')[1];
+        const parameters = window.location.href.split('?')[1];
         if (typeof parameters !== 'undefined') {
-          var searchParameters = new URLSearchParams(parameters);
+          const searchParameters = new URLSearchParams(parameters);
 
-          for (var keyValues of searchParameters.entries()) {
+          for (let keyValues of searchParameters.entries()) {
             if (/^fid$/i.test(keyValues[0]) && /^[0-9]+$/.test(keyValues[1])) {
               fid = keyValues[1];
 
-              var anchors = document.getElementsByTagName("a");
-              for (var i = 0; i < anchors.length; i++) {
-                if (/app\.foreverdomains\.io/.test(anchors[i].href)) {
+              const anchors = document.getElementsByTagName("a");
+              for (let i = 0; i < anchors.length; i++) {
+                if (/app\.foreverdomains\.io/i.test(anchors[i].href)) {
                   anchors[i].href += '?fid=' + fid;
                 }
               }
+
+              break;
             }
           }
         }

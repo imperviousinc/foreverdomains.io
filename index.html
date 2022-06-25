@@ -293,7 +293,8 @@
             <li><a href="/about/index.html">About</a></li>
             <li><a href="/terms/index.html">Terms of service</a></li>
             <li><a href="/privacy/index.html">Privacy policy</a></li>
-            <li>&copy; Copyright 2021 <a href="https://impervious.com/">Impervious Inc.</a></li>
+            <li><a href="/affiliate/index.html">Affiliates</a></li>
+            <li>&copy; Copyright 2021-2022 <a href="https://impervious.com/">Impervious Inc.</a></li>
           </ul>
         </div>
         <div class="col-sm-6 brand">
@@ -307,10 +308,38 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-    	$("#search-form").submit(function() {
-    		window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val();
-    		return false;
-		});
+      let fid;
+
+      $(function() {
+        const parameters = window.location.href.split('?')[1];
+        if (typeof parameters !== 'undefined') {
+          const searchParameters = new URLSearchParams(parameters);
+
+          for (let keyValues of searchParameters.entries()) {
+            if (/^fid$/i.test(keyValues[0]) && /^[0-9]+$/.test(keyValues[1])) {
+              fid = keyValues[1];
+
+              const anchors = document.getElementsByTagName("a");
+              for (let i = 0; i < anchors.length; i++) {
+                if (/app\.foreverdomains\.io/i.test(anchors[i].href)) {
+                  anchors[i].href += '?fid=' + fid;
+                }
+              }
+
+              break;
+            }
+          }
+        }
+      });
+
+      $("#search-form").submit(function() {
+        if (typeof fid !== 'undefined') {
+          window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val() + '?fid=' + fid;
+        } else {
+          window.location.href = "https://app.foreverdomains.io/search/" + $("#search-data").val();
+        }
+        return false;
+      });
     </script>
 
   </body>

@@ -150,7 +150,7 @@
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingTwo">
                 <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">
                     <img src="img/arrow2.svg" class="accordian-arrow"> What could I use a .forever domain for?
                   </a>
                 </h4>
@@ -164,96 +164,110 @@
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingThree">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                    <img src="img/arrow2.svg" class="accordian-arrow"> Do .forever domains work in a browser like a website?
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> How much does it cost to register a .forever domain?
                   </a>
                 </h4>
               </div>
-              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="true" style="">
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                   .forever is a top-level domain in the <a href="https://handshake.org">Handshake</a> root zone, so you will need a Handshake resolver in order to view .forever domains.  We created <a href="https://impervious.com/fingertip.html">Fingertip</a>, an easy to use menubar app to simplify this. It uses <a href="https://github.com/handshake-org/HIPs/blob/master/HIP-0005.md">HIP-5</a> to delegate subdomain management to our fork of ENS.
+                  Since .forever domains NEVER expire, you only have to pay a one-time registration fee.  All 3+ character domains (e.g., abc.forever) cost $100.  2 character domains (e.g., ab.forever) cost $500, and 1 character domains (e.g., a.forever) cost $1000 (these are premium domains, which is why they're more expensive).
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingFour">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                    <img src="img/arrow2.svg" class="accordian-arrow"> Do I need a browser extension to view my forever domain's website?
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> Do .forever domains work in a browser like a website?
                   </a>
                 </h4>
               </div>
-              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true" style="">
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                  To make this easy, we've created <a href="https://impervious.com/fingertip.html">Fingertip</a>, an open source menu bar app that uses <a href="https://github.com/handshake-org/hnsd">hnsd</a> (an SPV resolver daemon for the Handshake network) + Ethereum to resolve .forever domains.
+                  .forever is a top-level domain in the <a href="https://handshake.org">Handshake</a> root zone, so you will need a Handshake resolver in order to view .forever domains.  We created <a href="https://impervious.com/fingertip.html">Fingertip</a>, an easy to use menubar app to simplify this. It uses <a href="https://github.com/handshake-org/HIPs/blob/master/HIP-0005.md">HIP-5</a> to delegate subdomain management to our fork of ENS.
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingFive">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                    <img src="img/arrow2.svg" class="accordian-arrow"> How does the HTTPS work on forever domains?
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> Do I need a browser extension to view my forever domain's website?
                   </a>
                 </h4>
               </div>
-              <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="true" style="">
+              <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                  An advantage of Handshake is that it doesn't require trusting Certificate Authorities (CAs) for SSL.  HTTPS is done with <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE</a>, a DNS-based authentication, which requires no trust or centralized control over SSL certificates.  It is more secure than https on traditional domains because you don't have to trust CAs.
+                  To make this easy, we've created <a href="https://impervious.com/fingertip.html">Fingertip</a>, an open source menu bar app that uses <a href="https://github.com/handshake-org/hnsd">hnsd</a> (an SPV resolver daemon for the Handshake network) + Ethereum to resolve .forever domains.
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingSix">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                    <img src="img/arrow2.svg" class="accordian-arrow"> How does forever domains support DNS?
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> How does the HTTPS work on forever domains?
                   </a>
                 </h4>
               </div>
-              <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="true" style="">
+              <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                  The management of .forever domains is done with a fork of ENS which includes an implementation of <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1185.md">EIP-1185</a>, which allows DNS on ENS.  Our contracts have been verified on etherscan and you can <a href="https://etherscan.io/address/0x24bf911ebF9cc5Ce5d65041b9343D7c5F9565509#code">view them here</a>, or <a href="https://github.com/imperviousinc/forever-contracts">on github</a>.
+                  An advantage of Handshake is that it doesn't require trusting Certificate Authorities (CAs) for SSL.  HTTPS is done with <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE</a>, a DNS-based authentication, which requires no trust or centralized control over SSL certificates.  It is more secure than https on traditional domains because you don't have to trust CAs.
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingSeven">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
-                    <img src="img/arrow2.svg" class="accordian-arrow"> Can I use a forever domain for my cryptocurrency wallet?
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> How does forever domains support DNS?
                   </a>
                 </h4>
               </div>
-              <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven" aria-expanded="true" style="">
+              <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                  Of course!  Since .forever uses DNS, you can set up a .well-known directory on your domains, using <a href="https://hsd-dev.org/HIPs/proposals/0002/">HIP-2</a>, to publish a wallet address for your domain.  An advantage of this in comparison to .eth or .crypto is that you can dynamically create a new address for each request without paying gas fees.  Hooray!
+                  The management of .forever domains is done with a fork of ENS which includes an implementation of <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1185.md">EIP-1185</a>, which allows DNS on ENS.  Our contracts have been verified on etherscan and you can <a href="https://etherscan.io/address/0x24bf911ebF9cc5Ce5d65041b9343D7c5F9565509#code">view them here</a>, or <a href="https://github.com/imperviousinc/forever-contracts">on github</a>.
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingEight">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
-                    <img src="img/arrow2.svg" class="accordian-arrow"> Will there be some sort of ‘whois’ record with my personal information associated to my domain?
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> Can I use a forever domain for my cryptocurrency wallet?
                   </a>
                 </h4>
               </div>
-              <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight" aria-expanded="true" style="">
+              <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                  Nope!  We do have an ENS reverse registrar deployed, which helps to map the .forever domains you own to your Ethereum wallet address.  This is so that you can easily see and manage the domains you own from the <a href="https://app.foreverdomains.io">app.foreverdomains.io</a> website, or other apps and integrations.
+                  Of course!  Since .forever uses DNS, you can set up a .well-known directory on your domains, using <a href="https://hsd-dev.org/HIPs/proposals/0002/">HIP-2</a>, to publish a wallet address for your domain.  An advantage of this in comparison to .eth or .crypto is that you can dynamically create a new address for each request without paying gas fees.  Hooray!
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingNine">
                 <h4 class="panel-title">
-                  <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine" class="collapsed">
+                    <img src="img/arrow2.svg" class="accordian-arrow"> Will there be some sort of ‘whois’ record with my personal information associated to my domain?
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine" aria-expanded="false" style="height: 0px;">
+                <div class="panel-body">
+                  Nope!  We do have an ENS reverse registrar deployed, which helps to map the .forever domains you own to your Ethereum wallet address.  This is so that you can easily see and manage the domains you own from the <a href="https://app.foreverdomains.io">app.foreverdomains.io</a> website, or other apps and integrations.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTen">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen" class="collapsed">
                     <img src="img/arrow2.svg" class="accordian-arrow"> Are .forever domains NFTs?
                   </a>
                 </h4>
               </div>
-              <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine" aria-expanded="true" style="">
+              <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
                   Yes, every .forever domain is issued as an <a href="https://eips.ethereum.org/EIPS/eip-721">ERC-721</a> token. Building on this standard makes it easier for developers to integrate with .forever domains and it lets users manage their domain ownership from any compatible wallet, exchange, or marketplace.
                 </div>
